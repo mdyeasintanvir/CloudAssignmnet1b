@@ -6,7 +6,7 @@
 STUDENT_NAME="Md Yeasin Tanvir"
 STUDENT_ID="J25045535"
 TUTORIAL_SESSION="Monday 10:30AM"
-BUCKET_NAME="mtanvir-photoalbum-j25045535"
+BUCKET_NAME="ytanvir-photoalbum-2026"
 RDS_ENDPOINT="xxxx.xxxxxxxx.us-east-1.rds.amazonaws.com"
 DB_NAME="photoalbum"
 DB_USERNAME="admin"

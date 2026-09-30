@@ -9,9 +9,9 @@
 ### আপনার নামগুলো (এগুলোই ব্যবহার করবেন)
 | জিনিস | মান |
 |---|---|
-| VPC | `MTanvirVPC` |
-| Internet Gateway | `MTanvirIGW` |
-| S3 bucket | `mtanvir-photoalbum-j25045535` |
+| VPC | `YTanvirVPC` |
+| Internet Gateway | `YTanvirIGW` |
+| S3 bucket | `ytanvir-photoalbum-2026` |
 | ছবির file-এর নাম | `photo1.jpg`, `photo2.jpg`, `photo3.jpg` |
 | RDS identifier | `photo-db` |
 | DB name | `photoalbum` |
@@ -29,13 +29,13 @@
 
 ## ধাপ 1: VPC
 1. উপরের search box-এ **VPC** লিখে খুলুন, তারপর **Your VPCs → Create VPC**।
-2. **VPC only** বাছুন। Name tag: `MTanvirVPC`, IPv4 CIDR: `10.0.0.0/16`, তারপর **Create VPC**।
+2. **VPC only** বাছুন। Name tag: `YTanvirVPC`, IPv4 CIDR: `10.0.0.0/16`, তারপর **Create VPC**।
 3. VPC select করে **Actions → Edit VPC settings → Enable DNS hostnames ✅ → Save**।
 
-📸 **SS-1:** VPC list, যেখানে MTanvirVPC আর 10.0.0.0/16 দেখা যায়।
+📸 **SS-1:** VPC list, যেখানে YTanvirVPC আর 10.0.0.0/16 দেখা যায়।
 
 ## ধাপ 2: চারটা Subnet
-**Subnets → Create subnet**। VPC ID-তে `MTanvirVPC` বাছুন। প্রথমটা লিখে **Add new subnet** চেপে বাকিগুলো যোগ করুন, তারপর **Create subnet**:
+**Subnets → Create subnet**। VPC ID-তে `YTanvirVPC` বাছুন। প্রথমটা লিখে **Add new subnet** চেপে বাকিগুলো যোগ করুন, তারপর **Create subnet**:
 
 | Subnet name | Availability Zone | IPv4 subnet CIDR |
 |---|---|---|
@@ -49,25 +49,25 @@
 📸 **SS-2:** Subnet list (৪টা subnet, CIDR আর AZ দেখা যায় এমন)।
 
 ## ধাপ 3: Internet Gateway
-**Internet gateways → Create internet gateway**। Name: `MTanvirIGW`, তারপর Create।
-তারপর **Actions → Attach to VPC → MTanvirVPC → Attach**।
+**Internet gateways → Create internet gateway**। Name: `YTanvirIGW`, তারপর Create।
+তারপর **Actions → Attach to VPC → YTanvirVPC → Attach**।
 
 📸 **SS-3:** IGW, যেখানে State = **Attached**।
 
 ## ধাপ 4: Route Tables
 **A. Public route table**
-1. **Route tables → Create route table**। Name: `PublicRT`, VPC: `MTanvirVPC`, তারপর Create।
-2. **Routes tab → Edit routes → Add route**: Destination `0.0.0.0/0`, Target **Internet Gateway → MTanvirIGW**, তারপর Save।
+1. **Route tables → Create route table**। Name: `PublicRT`, VPC: `YTanvirVPC`, তারপর Create।
+2. **Routes tab → Edit routes → Add route**: Destination `0.0.0.0/0`, Target **Internet Gateway → YTanvirIGW**, তারপর Save।
 3. **Subnet associations tab → Edit subnet associations**: ✅ Public Subnet 1, ✅ Public Subnet 2, তারপর Save।
 
 **B. Private route table**
-1. **Create route table**। Name: `PrivateRT`, VPC: `MTanvirVPC`, তারপর Create। (কোনো route যোগ করবেন না।)
+1. **Create route table**। Name: `PrivateRT`, VPC: `YTanvirVPC`, তারপর Create। (কোনো route যোগ করবেন না।)
 2. **Subnet associations → Edit**: ✅ Private Subnet 1, ✅ Private Subnet 2, তারপর Save।
 
 📸 **SS-4:** PublicRT → Routes। 📸 **SS-5:** PublicRT → Subnet associations। 📸 **SS-6:** PrivateRT → Routes আর Subnet associations।
 
 ## ধাপ 5: Security Groups (এই ক্রমেই বানাবেন)
-**VPC → Security groups → Create security group**। প্রতিটায় VPC হিসেবে `MTanvirVPC` দেবেন। Outbound rules যেমন আছে তেমন থাকবে।
+**VPC → Security groups → Create security group**। প্রতিটায় VPC হিসেবে `YTanvirVPC` দেবেন। Outbound rules যেমন আছে তেমন থাকবে।
 
 **1. `TestInstanceSG`** (Description: Test instance SG)
 - Inbound: Type **All traffic**, Source **Anywhere-IPv4**
@@ -83,7 +83,7 @@
 📸 **SS-7, SS-8, SS-9:** তিনটা SG-র Inbound rules tab।
 
 ## ধাপ 6: S3 Bucket আর ছবি
-1. **S3 → Create bucket**। Bucket name: `mtanvir-photoalbum-j25045535`।
+1. **S3 → Create bucket**। Bucket name: `ytanvir-photoalbum-2026`।
 2. **Block all public access**-এর ✅ তুলে দিন, নিচের **"I acknowledge..."** box-এ ✅ দিন। তারপর **Create bucket**।
 3. Bucket খুলে **Upload → Add files**। ৩টা ছোট ছবি দিন, নাম হবে **`photo1.jpg`, `photo2.jpg`, `photo3.jpg`** (upload-এর আগে computer-এ rename করে নিন)। তারপর **Upload**।
 4. **Permissions tab → Bucket policy → Edit**। `scripts/s3-bucket-policy.json` file-এর পুরো লেখা paste করে **Save changes**।
@@ -95,7 +95,7 @@
 ## ধাপ 7: RDS Database (~১০ মিনিট লাগে, তাই আগে চালু করে দিন)
 **A. Subnet group**
 **RDS → Subnet groups → Create DB subnet group**:
-- Name `photo-db-subnet-group`, Description `private subnets`, VPC `MTanvirVPC`
+- Name `photo-db-subnet-group`, Description `private subnets`, VPC `YTanvirVPC`
 - Availability Zones: **us-east-1a**, **us-east-1b**
 - Subnets: **10.0.3.0/24**, **10.0.4.0/24**, তারপর Create
 
@@ -106,7 +106,7 @@
 - DB instance identifier: `photo-db`; Master username: `admin`; Credentials management: **Self managed**; Master password: আপনার password (দুবার)
 - Instance class: **db.t3.micro** (বা db.t4g.micro)
 - Storage: 20 GB; **Additional storage configuration → Enable storage autoscaling ❌**
-- Connectivity: **Don't connect to an EC2 compute resource**; VPC: `MTanvirVPC`; DB subnet group: `photo-db-subnet-group`
+- Connectivity: **Don't connect to an EC2 compute resource**; VPC: `YTanvirVPC`; DB subnet group: `photo-db-subnet-group`
 - **Public access: No**
 - VPC security group: **Choose existing → DBServerSG** (**default**-এর পাশে ✖ দিয়ে সরিয়ে দিন)
 - Availability Zone: **us-east-1a**
@@ -123,7 +123,7 @@
 - Instance type: **t3.micro**
 - Key pair: **vockey**
 - **Network settings → Edit**:
-  - VPC: `MTanvirVPC`, Subnet: **Public Subnet 2**, Auto-assign public IP: **Enable**
+  - VPC: `YTanvirVPC`, Subnet: **Public Subnet 2**, Auto-assign public IP: **Enable**
   - Firewall: **Select existing security group → WebServerSG**
 - **Advanced details** → নিচে **User data** box-এ `scripts/webserver-userdata.sh`-এর পুরো লেখা paste করুন
 - **Launch instance** চাপুন।
@@ -138,13 +138,13 @@
 ## ধাপ 10: Test Instance
 **Launch instances**:
 - Name: `TestInstance`; AMI: **Amazon Linux 2023**; Type: **t3.micro**; Key pair: **vockey**
-- Network → Edit: VPC `MTanvirVPC`, Subnet **Private Subnet 2**, Auto-assign public IP **Disable**, SG **TestInstanceSG**
+- Network → Edit: VPC `YTanvirVPC`, Subnet **Private Subnet 2**, Auto-assign public IP **Disable**, SG **TestInstanceSG**
 - Launch করুন। Instance-এর **Private IPv4 address** (10.0.4.x) লিখে রাখুন।
 
 📸 **SS-14:** Instances list (দুটো instance Running)। 📸 **SS-15:** WebServer-এর Details (Subnet = Public Subnet 2, Public IP = Elastic IP)। 📸 **SS-16:** TestInstance-এর Details (Subnet = Private Subnet 2)।
 
 ## ধাপ 11: Network ACL (৩ নম্বর)
-**VPC → Network ACLs → Create network ACL**। Name: `PublicSubnet2NACL`, VPC: `MTanvirVPC`, তারপর Create।
+**VPC → Network ACLs → Create network ACL**। Name: `PublicSubnet2NACL`, VPC: `YTanvirVPC`, তারপর Create।
 Select করে **Inbound rules → Edit inbound rules → Add new rule**:
 
 | Rule number | Type | Port range | Source | Allow/Deny |

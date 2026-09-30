@@ -7,10 +7,9 @@ CREATE TABLE photos (
   reference    VARCHAR(255) NOT NULL
 );
 
--- Example rows: change BUCKET and file names to match what you uploaded to S3
 INSERT INTO photos (title, description, creationdate, keywords, reference) VALUES
-('Photo One',   'My first photo',  '2026-09-01', 'nature, sky',   'https://mtanvir-photoalbum-j25045535.s3.amazonaws.com/photo1.jpg'),
-('Photo Two',   'My second photo', '2026-09-10', 'city, night',   'https://mtanvir-photoalbum-j25045535.s3.amazonaws.com/photo2.jpg'),
-('Photo Three', 'My third photo',  '2026-09-20', 'food, dinner',  'https://mtanvir-photoalbum-j25045535.s3.amazonaws.com/photo3.jpg');
+('Kangaroo',     'A kangaroo standing in the grass',  '2026-09-01', 'animal, kangaroo, australia', 'https://ytanvir-photoalbum-2026.s3.amazonaws.com/photo1.jpg'),
+('Tower Bridge', 'Tower Bridge over the River Thames', '2026-09-10', 'bridge, london, landmark',    'https://ytanvir-photoalbum-2026.s3.amazonaws.com/photo2.jpg'),
+('Butterfly',    'A butterfly resting on a flower',    '2026-09-20', 'nature, butterfly, flower',   'https://ytanvir-photoalbum-2026.s3.amazonaws.com/photo3.jpg');
 
 SELECT * FROM photos;
