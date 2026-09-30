@@ -1,4 +1,7 @@
--- Run in phpMyAdmin -> select database "photoalbum" -> SQL tab -> Go
+-- Run in phpMyAdmin -> SQL tab (top menu) -> paste all -> Go
+CREATE DATABASE IF NOT EXISTS photoalbum;
+USE photoalbum;
+
 CREATE TABLE photos (
   title        VARCHAR(255) NOT NULL,
   description  VARCHAR(255),
