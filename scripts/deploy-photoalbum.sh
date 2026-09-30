@@ -7,7 +7,7 @@ STUDENT_NAME="Md Yeasin Tanvir"
 STUDENT_ID="J25045535"
 TUTORIAL_SESSION="Monday 10:30AM"
 BUCKET_NAME="ytanvir-photoalbum-2026"
-RDS_ENDPOINT="photo-db.chpgrborfcx5.us-east-1.rds.amazonaws.com"
+RDS_ENDPOINT="photodb.chpgrborfcx5.us-east-1.rds.amazonaws.com"
 DB_NAME="photoalbum"
 DB_USERNAME="admin"
 DB_PASSWORD="YourPassword123"
@@ -242,4 +242,4 @@ fi
 
 sudo chown -R ec2-user:apache /var/www/html
 sudo systemctl restart php-fpm httpd
-echo "DONE. Open: http://<ELASTIC-IP>/cos20019/photoalbum/album.php"
+echo "DONE. Open: http://44.217.73.92/cos20019/photoalbum/album.php"
