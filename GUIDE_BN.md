@@ -5,12 +5,12 @@
 > Region সবসময় **N. Virginia (us-east-1)**।
 > 💰 **NAT Gateway কখনো বানাবেন না।** এটা দামি, আর বানালে "unnecessary service"-এর জন্য নম্বর কাটবে।
 
-নিচের জায়গায় নিজের তথ্য বসান। উদাহরণ ধরা হয়েছে নাম **Rahim Uddin**:
+নিচের জায়গায় নিজের তথ্য বসান। উদাহরণ ধরা হয়েছে নাম **Md Yeasin Tanvir**:
 
 | জিনিস | মান |
 |---|---|
-| VPC নাম | `RUddinVPC` (নামের প্রথম অক্ষর + LastName + VPC) |
-| S3 bucket | `ruddin-photoalbum-<studentid>` (ছোট হাতের অক্ষরে, কোনো space নয়) |
+| VPC নাম | `MTanvirVPC` (নামের প্রথম অক্ষর + LastName + VPC) |
+| S3 bucket | `mtanvir-photoalbum-<studentid>` (ছোট হাতের অক্ষরে, কোনো space নয়) |
 | DB name | `photoalbum` |
 | DB user / pass | `admin` / নিজে একটা password দিন (মনে রাখবেন) |
 
@@ -22,7 +22,7 @@
 
 ## ধাপ 1: VPC
 1. **VPC** service খুলে **Your VPCs**, তারপর **Create VPC**।
-2. **VPC only** বাছুন। Name: `RUddinVPC`, IPv4 CIDR: `10.0.0.0/16`। তারপর **Create VPC**।
+2. **VPC only** বাছুন। Name: `MTanvirVPC`, IPv4 CIDR: `10.0.0.0/16`। তারপর **Create VPC**।
 3. নতুন VPC select করে **Actions → Edit VPC settings**। **Enable DNS hostnames** ✅ দিয়ে Save করুন।
 📸 **SS-1:** VPC list, আপনার VPC আর CIDR যেন দেখা যায়।
 
@@ -40,7 +40,7 @@
 📸 **SS-2:** Subnet list (নাম, CIDR আর AZ দেখা যায় এমন)।
 
 ## ধাপ 3: Internet Gateway
-**Internet gateways → Create**। Name: `RUddinIGW`, তারপর Create। এরপর **Actions → Attach to VPC**, আপনার VPC বাছুন।
+**Internet gateways → Create**। Name: `MTanvirIGW`, তারপর Create। এরপর **Actions → Attach to VPC**, আপনার VPC বাছুন।
 📸 **SS-3:** IGW যেখানে "Attached" দেখায়।
 
 ## ধাপ 4: Route Tables
@@ -63,7 +63,7 @@
 📸 **SS-7, SS-8, SS-9:** প্রতিটা SG-র Inbound rules tab।
 
 ## ধাপ 6: S3 Bucket আর ছবি
-1. **S3 → Create bucket**। Name: `ruddin-photoalbum-<id>`, Region us-east-1।
+1. **S3 → Create bucket**। Name: `mtanvir-photoalbum-<id>`, Region us-east-1।
    **Block all public access**-এর ✅ তুলে দিন, নিচের acknowledge box-এ ✅ দিন। তারপর Create।
 2. Bucket খুলে **Upload** চাপুন। ৩–৪টা ছোট `.jpg` ছবি দিন। **File-এর নামে space রাখবেন না** (যেমন `photo1.jpg`)।
 3. **Permissions → Bucket policy → Edit**। `scripts/s3-bucket-policy.json` file-এর লেখা paste করুন, আর `BUCKET`-এর জায়গায় আপনার bucket-এর নাম দিন। Save করুন।

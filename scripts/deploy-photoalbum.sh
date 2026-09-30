@@ -3,7 +3,7 @@
 # 1) Fill in the 9 values below (no spaces in BUCKET/DB names).
 # 2) SSH into the Web server and paste this WHOLE script into the terminal.
 
-STUDENT_NAME="Your Full Name"
+STUDENT_NAME="Md Yeasin Tanvir"
 STUDENT_ID="12345678"
 TUTORIAL_SESSION="Monday 10:30AM"
 BUCKET_NAME="your-bucket-name"
