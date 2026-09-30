@@ -10,7 +10,7 @@
 | জিনিস | মান |
 |---|---|
 | VPC নাম | `MTanvirVPC` (নামের প্রথম অক্ষর + LastName + VPC) |
-| S3 bucket | `mtanvir-photoalbum-<studentid>` (ছোট হাতের অক্ষরে, কোনো space নয়) |
+| S3 bucket | `mtanvir-photoalbum-j25045535` (ছোট হাতের অক্ষরে, কোনো space নয়) |
 | DB name | `photoalbum` |
 | DB user / pass | `admin` / নিজে একটা password দিন (মনে রাখবেন) |
 
@@ -63,7 +63,7 @@
 📸 **SS-7, SS-8, SS-9:** প্রতিটা SG-র Inbound rules tab।
 
 ## ধাপ 6: S3 Bucket আর ছবি
-1. **S3 → Create bucket**। Name: `mtanvir-photoalbum-<id>`, Region us-east-1।
+1. **S3 → Create bucket**। Name: `mtanvir-photoalbum-j25045535`, Region us-east-1।
    **Block all public access**-এর ✅ তুলে দিন, নিচের acknowledge box-এ ✅ দিন। তারপর Create।
 2. Bucket খুলে **Upload** চাপুন। ৩–৪টা ছোট `.jpg` ছবি দিন। **File-এর নামে space রাখবেন না** (যেমন `photo1.jpg`)।
 3. **Permissions → Bucket policy → Edit**। `scripts/s3-bucket-policy.json` file-এর লেখা paste করুন, আর `BUCKET`-এর জায়গায় আপনার bucket-এর নাম দিন। Save করুন।

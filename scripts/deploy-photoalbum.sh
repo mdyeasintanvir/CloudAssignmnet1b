@@ -4,9 +4,9 @@
 # 2) SSH into the Web server and paste this WHOLE script into the terminal.
 
 STUDENT_NAME="Md Yeasin Tanvir"
-STUDENT_ID="12345678"
+STUDENT_ID="J25045535"
 TUTORIAL_SESSION="Monday 10:30AM"
-BUCKET_NAME="your-bucket-name"
+BUCKET_NAME="mtanvir-photoalbum-j25045535"
 RDS_ENDPOINT="xxxx.xxxxxxxx.us-east-1.rds.amazonaws.com"
 DB_NAME="photoalbum"
 DB_USERNAME="admin"
