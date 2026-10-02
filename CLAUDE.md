@@ -62,3 +62,6 @@ sessions, tear everything down right after marking.
 - `GUIDE_BN.md` — 1B step-by-step guide in Bangla
 - `scripts/` — 1B user data, deploy script, SQL, bucket policy, CloudShell EC2/NACL scripts
 - `photoalbum/` — provided 1B PHP source
+- `docs/Assignment2_UG_v6.2.pdf` — Assignment 2 spec (full)
+- `assignment2/photoalbum/` — provided A2 PHP source (8 files; edit only constants.php: set DB_PHOTO_TABLE_NAME='photos', 1B table columns already match)
+- `assignment2/lambda/lambda-deployment-package-0.2.zip` — CreateThumbnail package (PNG only, writes resized-<name>)
