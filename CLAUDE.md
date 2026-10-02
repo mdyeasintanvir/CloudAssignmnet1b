@@ -47,7 +47,7 @@ say exactly where to click, ask for a screenshot after each step, explain errors
 - Do not change 1B resources until 1B is marked (Assignment 2 builds on them).
 
 ## Assignment 2 — IN PROGRESS (started 2026-10-02; 1B not yet marked → don't break the 1B site)
-Progress: audit done (no NAT GW/ALB; photodb available; WebServer running; 1A instance + TestInstance stopped). Lambda CreateThumbnail DONE (py3.12 arm64, LabRole, timeout 30s, zip uploaded, test event TestPNG on s3 test.png succeeded). resized-test.png verified. New SGs: ELBSG `sg-09961d2b0fee3cc41` (80 from 0.0.0.0/0), NATServerSG `sg-02648b9489c83ca38` (80+443 from WebServerSG), DevServerSG `sg-0165235f80df18417` (22,80,ICMP any). Next: console screenshots of SG rules, then NAT instance.
+Progress: audit done (no NAT GW/ALB; photodb available; WebServer running; 1A instance + TestInstance stopped). Lambda CreateThumbnail DONE (py3.12 arm64, LabRole, timeout 30s, zip uploaded, test event TestPNG on s3 test.png succeeded). resized-test.png verified. New SGs: ELBSG `sg-09961d2b0fee3cc41` (80 from 0.0.0.0/0), NATServerSG `sg-02648b9489c83ca38` (80+443 from WebServerSG), DevServerSG `sg-0165235f80df18417` (22,80,ICMP any). NAT instance DONE: NATServer `i-09fb44b46bfb199cd` t3.micro PublicSubnet1 `subnet-01ab3ffb57ef6d9a5` 10.0.1.240 (public IP changes on restart), SourceDestCheck=false, launched via CLI because console hides the deprecated AMI. Private RT route 0.0.0.0/0→NAT NOT yet added (deferred, 1B not marked; add before ASG). Next: install A2 photoalbum on WebServer (Dev server) under /var/www/html/photoalbum + AWS SDK, then custom AMI.
 
 ### Plan agreed
 Spec: Assignment2_UG_v6.2 (HA Photo Album: IAM via existing **LabRole**, S3 bucket policy restricted by HTTP referer,
