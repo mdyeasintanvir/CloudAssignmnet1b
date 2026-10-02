@@ -47,7 +47,7 @@ say exactly where to click, ask for a screenshot after each step, explain errors
 - Do not change 1B resources until 1B is marked (Assignment 2 builds on them).
 
 ## Assignment 2 — IN PROGRESS (started 2026-10-02; 1B not yet marked → don't break the 1B site)
-Progress: audit done (no NAT GW/ALB; photodb available; WebServer running). Next: Lambda CreateThumbnail.
+Progress: audit done (no NAT GW/ALB; photodb available; WebServer running; 1A instance + TestInstance stopped). Lambda CreateThumbnail DONE (py3.12 arm64, LabRole, timeout 30s, zip uploaded, test event TestPNG on s3 test.png succeeded). Next: verify resized-test.png, then NATServerSG + NAT instance.
 
 ### Plan agreed
 Spec: Assignment2_UG_v6.2 (HA Photo Album: IAM via existing **LabRole**, S3 bucket policy restricted by HTTP referer,
