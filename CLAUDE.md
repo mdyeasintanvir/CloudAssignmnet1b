@@ -39,14 +39,17 @@ say exactly where to click, ask for a screenshot after each step, explain errors
 | RDS | `photodb` MySQL 8.4.7 db.t3.micro, subnet group `photo-db-subnet-group` (private only), DB `photoalbum`, table `photos`, user `admin` (password: ask the student, never store it in the repo) |
 | EC2 | WebServer `i-01cc5ea28b989ceab` 10.0.2.57, **Elastic IP 44.217.73.92**; TestInstance `i-01d837294b03b356c` 10.0.4.88 (stopped) |
 | URL | http://44.217.73.92/cos20019/photoalbum/album.php |
-| Leftovers | Assignment 1A instance `i-0919f71ec864f60c3` (stopped) + its EIP 35.153.228.229 in the default VPC — delete once 1A is graded |
+| Leftovers | Assignment 1A instance `i-0919f71ec864f60c3` (stopped) + its EIP 35.153.228.229 in the default VPC — 1A is graded; student chose NOT to delete (2026-10-02), both instances stopped to save credit |
 | Deleted | NAT GW `nat-1aa8051c9741d4b85` and its 2 IPs; duplicate MTanvirVPC; old RDS `photo-db`; PublicServer1 |
 
 - Report: IEEE two-column, 14 pages, `report/build_ieee.py` → PDF (report/ is git-ignored because screenshots show account info).
 - If the site is down: Start Lab → EC2 start WebServer → RDS start photodb.
 - Do not change 1B resources until 1B is marked (Assignment 2 builds on them).
 
-## Assignment 2 (next) — plan agreed
+## Assignment 2 — IN PROGRESS (started 2026-10-02; 1B not yet marked → don't break the 1B site)
+Progress: audit done (no NAT GW/ALB; photodb available; WebServer running). Next: Lambda CreateThumbnail.
+
+### Plan agreed
 Spec: Assignment2_UG_v6.2 (HA Photo Album: IAM via existing **LabRole**, S3 bucket policy restricted by HTTP referer,
 Lambda `CreateThumbnail` Python 3.12 arm64, custom AMI, launch template, ASG min 2 max 3 in private subnets with
 target tracking 30 requests/target, ALB with health check `/photoalbum/album.php`, NAT in Public Subnet 1,
