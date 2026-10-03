@@ -68,7 +68,7 @@ sessions, tear everything down right after marking.
 | NATServer `i-09fb44b46bfb199cd`, WebServer/Dev `i-01cc5ea28b989ceab` | stopped by End Lab | Start Lab restarts them automatically (check with audit command; start manually if not) |
 | Kept (cheap): AMI, LT, PhotoAlbumTG, SGs, NACL, Lambda, S3, RDS photodb, 2 EIPs | on | RDS may keep running after End Lab -> check credit next day ($13.4 on 2026-10-02; >$14.2 next day means RDS running) |
 Raw base URL: https://raw.githubusercontent.com/mdyeasintanvir/CloudAssignmnet1b/claude/confident-rubin-32gcdv
-Pending student questions to tutor (sent via WhatsApp): can ALB be deleted & re-created before due date; how long to keep site running for marking.
+TUTOR ANSWER (WhatsApp 2026-10-03): "Can delete boss. Everything. I just need the screenshot." -> no need to re-create ALB; report URL stays as the (deleted) ALB DNS. Teardown script ready: assignment2/scripts/08-teardown-costly.sh (EIPs, 4 instances, RDS, AMI+snapshot, NAT route; keeps free VPC/SG/S3/Lambda/LT/TG in case A3 needs them) — run ONLY after student says yes.
 
 ## Assignment 3 — not seen yet. Ask for the spec PDF, estimate cost before starting.
 
