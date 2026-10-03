@@ -5,7 +5,7 @@ Talk to the student in **Bangla** (they write Bangla/Banglish). They are not tec
 say exactly where to click, ask for a screenshot after each step, explain errors calmly.
 
 ## TOP PRIORITY: save AWS Learner Lab credit
-- Budget: $50 total for **all** assignments (1B, 2, 3). ~**$11 already used** after 1B (most of it from a NAT Gateway
+- Budget: $50 total for **all** assignments (1B, 2, 3). ~**$11 already used** after 1B; **$13.4 used** after A2 build day (2026-10-02, End Lab done) (most of it from a NAT Gateway
   that a previous ChatGPT session created and left running).
 - Never suggest anything costly without stating the cost first. Prefer:
   - **NAT instance** over NAT Gateway (NAT GW keeps billing after End Lab, ~$1.2/day).
