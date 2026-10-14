@@ -56,9 +56,13 @@ Cost plan (estimate ~$8–12): reuse 1B VPC/RDS/S3, reuse 1B WebServer as Dev se
 ami-00a36856283d67c39, source/dest check off) not NAT Gateway, t3.micro everywhere, build ALB last, End Lab between
 sessions, tear everything down right after marking.
 
-## Assignment 3 — not seen yet. Ask for the spec PDF, estimate cost before starting.
+## Assignment 3 — spec read (Assignment3_UG_v5.0)
+Design **report only**, no AWS build → $0 credit. Group of 3–4 (form on Canvas, screenshot to tutor by end of week 10),
+one PDF ≤15 pages IEEE style, due 9AM AEST Monday week 12, no extensions; everyone presents in week 12; include
+task allocation + fixed/variable budget. Plan and proposed serverless architecture are in `GUIDE_A3_BN.md`.
 
 ## Files in this repo
 - `GUIDE_BN.md` — 1B step-by-step guide in Bangla
+- `GUIDE_A3_BN.md` — Assignment 3 plan, architecture, UML message order, report outline (Bangla)
 - `scripts/` — 1B user data, deploy script, SQL, bucket policy, CloudShell EC2/NACL scripts
 - `photoalbum/` — provided 1B PHP source
